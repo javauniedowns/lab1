@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "main.c"
 
 char* readString(char* fileName)
 {
@@ -14,6 +13,7 @@ char* readString(char* fileName)
     FILE *pointer2 = fopen(fileName,"r");
     fgets(pointer, 100, pointer2);
 
+    pointer[strlen(pointer)-1] = '\0';
     return pointer;
 }
 
@@ -25,7 +25,8 @@ char* mysteryExplode(const char* string)
 
     int i;
     int j;
-    for(i = 1; i<strlen(string); i++)
+
+    for(i = 1; i<=strlen(string); i++)
     {
         for(j = 0; j<i; j++)
         {
@@ -34,4 +35,11 @@ char* mysteryExplode(const char* string)
     }
 
     return pointer3;
+}
+
+int main()
+{
+    char* str = readString("test1.txt");
+    char* explodedString = mysteryExplode(str);
+    printf("%s --> %s\n",str,explodedString);
 }
