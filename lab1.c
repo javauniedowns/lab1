@@ -36,10 +36,3 @@ char* mysteryExplode(const char* string)
 
     return pointer3;
 }
-
-int main()
-{
-    char* str = readString("test1.txt");
-    char* explodedString = mysteryExplode(str);
-    printf("%s --> %s\n",str,explodedString);
-}
